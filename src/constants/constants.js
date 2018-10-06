@@ -1,4 +1,5 @@
 export const MAPS_API_KEY = 'AIzaSyDuFeP-bsrRKA4N9c1mGufdAke4TGd2lRs';
+export const WEATHER_API_KEY = '201c47a9297b049e4659b2737f2ca14f';
 export const locations = [{
     name: "Connaught Place, New Delhi",
     position: {

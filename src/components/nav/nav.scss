@@ -39,7 +39,8 @@ $yellow: #f0ae29;
         border-bottom: none;
         .active-marker {
             display: inline-block;
-            width: 10px;
+            max-width: 10px;
+            width: 10%;
             height: 80px;
             background-color: $yellow;
             position: absolute;

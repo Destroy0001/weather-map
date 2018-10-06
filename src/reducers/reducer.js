@@ -7,7 +7,7 @@ const initState = {
 }
 const assign = Object.assign;
 export default (state = initState, action) => {
-
+    console.log(action);
     switch (action.type) {
         case 'SELECT_LOCATION':
             return assign({}, state, {

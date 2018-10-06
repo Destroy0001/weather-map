@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://ajzone007.github.io/weather-map",
   "dependencies": {
+    "axios": "^0.18.0",
     "google-maps-react": "^2.0.2",
     "node-sass": "^4.9.3",
     "react": "^16.5.2",

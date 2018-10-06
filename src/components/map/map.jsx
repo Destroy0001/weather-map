@@ -8,13 +8,8 @@ export class MapComponent extends React.Component {
         //creating markers for each location passed in props
         const markerIcon = {
             url: "/assets/images/marker.svg",
-            scaledSize: new this.props.google.maps.Size(27, 30)
+            scaledSize: new this.props.google.maps.Size(30, 40)
         }
-        const markers = (this.props.markers || []).map(
-            (marker, index) => {
-                return (<Marker key={index} position={marker.position} name={marker.name} icon={markerIcon} />);
-            }
-        )
         return (
             <Map
                 google={this.props.google}
@@ -26,7 +21,20 @@ export class MapComponent extends React.Component {
                 }}
                 disableDefaultUI={true}
             >
-                {markers}
+                {
+                    (this.props.markers || []).map(
+                        (marker, index) => {
+                            return (
+                            <Marker
+                                key={index}
+                                position={marker.position}
+                                name={marker.name}
+                                icon={markerIcon}
+                                onClick={() =>{ this.props.onMarkerClick && this.props.onMarkerClick(marker) }}
+                            />);
+                        }
+                    )
+                }
             </Map>
         );
     }
