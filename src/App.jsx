@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import './App.scss';
 import Nav from './components/nav/nav.jsx';
 import MapView from './views/map/map';
+import WeatherView from './views/weather/weather';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <div className='view'>
           <Switch>
             <Route path="/map" component={MapView} />
+            <Route path="/weather" component={WeatherView} />
             <Redirect from="*" to="/map" />
           </Switch>
         </div>

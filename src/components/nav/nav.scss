@@ -2,7 +2,6 @@ $blue: #0071bc;
 $white: #ffffff;
 $yellow: #f0ae29;
 
-
 .nav {
     position: relative;
     flex-direction: row;
@@ -33,7 +32,7 @@ $yellow: #f0ae29;
     }
 
     .nav-link.active {
-        width: 105%;
+        width: 101%;
         background-color: $white;
         box-shadow: 3px 0px 8px 1px rgba(0, 0, 0, .3);
         border-bottom: none;

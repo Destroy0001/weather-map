@@ -1,0 +1,72 @@
+.weather-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+
+    .location-container {
+        width: 50%;
+        height: 40%;
+        box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        padding: 20px;
+
+        .location-picker {
+            width: 100%;
+            height: 95%;
+            top: 2.5%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+
+            .location {
+                width: 100%;
+                height: 100px;
+                display: inline-block;
+                padding: 20px 10px;
+                position: relative;
+
+                i {
+                    color: #f0ae29;
+                    margin-right: 12px;
+                }
+
+                .location-name {
+                    display: inline-block;
+                    position: absolute;
+                    width: 85%;
+                    color: #828282;
+                    text-align: left;
+                }
+
+                .location-position {
+                    color: #d3d3d3;
+                    display: flex;
+                    justify-content: space-between;
+                    position: absolute;
+                    bottom: 20px;
+                    width: 85%;
+                    margin-left: 24px;
+                }
+
+            }
+
+            .location.selected {
+                background: #d3d3d34f;
+            }
+        }
+
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .weather-container {
+        padding: 10px;
+
+        .location-container {
+            width: 100%;
+            padding: 10px;
+        }
+
+    }
+}
