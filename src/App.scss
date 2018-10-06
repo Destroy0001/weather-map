@@ -1,0 +1,14 @@
+.app-container {
+  display: flex;
+
+  .nav {
+    width: 15vw;
+    height: 100vh
+  }
+
+  .view {
+    width: 85vw;
+    height: 100vh;
+    background-color: red;
+  }
+}
