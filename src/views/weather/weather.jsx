@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getWeather } from '../../actions/actions';
 import './weather.scss';
 import moment from 'moment';
+import { Chart } from 'react-google-charts';
 
 
 export class WeatherView extends React.Component {
@@ -19,9 +20,7 @@ export class WeatherView extends React.Component {
     }
 
     renderWeatherReport() {
-        const weatherReport = this.props.weatherReport;
-        const selectedLocation = this.props.selectedLocation;
-        console.log(weatherReport);
+        const { weatherReport, selectedLocation } = this.props;
         if (weatherReport.loading || !weatherReport.data) {
             return;
         }
@@ -38,12 +37,12 @@ export class WeatherView extends React.Component {
                                 <div key={index} className="daily-weather-report">
                                     <span className="day-label">{moment(report.date).format('DD. dddd')}</span>
                                     <div className="temp-wrapper max-temp-wrapper">
-                                        <div class="temp">{report.day.maxtemp_c} &deg;</div>
-                                        <div class="temp-label">Max</div>
+                                        <div className="temp">{report.day.maxtemp_c} &deg;</div>
+                                        <div className="temp-label">Max</div>
                                     </div>
                                     <div className="temp-wrapper min-temp-wrapper">
-                                        <div class="temp">{report.day.mintemp_c} &deg;</div>
-                                        <div class="temp-label">Min</div>
+                                        <div className="temp">{report.day.mintemp_c} &deg;</div>
+                                        <div className="temp-label">Min</div>
                                     </div>
                                 </div>
                             )
@@ -55,7 +54,7 @@ export class WeatherView extends React.Component {
     }
 
     renderLocationPicker() {
-        const selectedLocation = this.props.selectedLocation;
+        const { selectedLocation } = this.props;
         return (<div className="location-container" >
             <div className="location-picker">
                 {
@@ -76,11 +75,71 @@ export class WeatherView extends React.Component {
         </div>)
     }
 
+    renderWeatherChart() {
+        const { weatherReport } = this.props;
+        if (weatherReport.loading || !weatherReport.data) {
+            return;
+        }
+
+        let chartData = [['label', 'maxTemp']];
+        weatherReport.data.forEach(forecast => {
+
+            let row = [
+                moment(forecast.date).format('DD. ddd'),
+                forecast.day.maxtemp_c
+            ];
+
+            chartData.push(row);
+        })
+
+        return (
+            <div className="chart-container">
+                <div className="chart-heading">
+                    <span className="chart-label"> 7 Day forecast</span>
+                </div>
+                <div className="separator"></div>
+                <div className="chart-wrapper">
+                    <Chart
+                        chartType="ColumnChart"
+                        loader={<div>Loading Chart</div>}
+                        data={chartData}
+
+                        options={{
+                            height: '100%',
+                            width: '100%',
+                            chartArea: { width: '100%', height: '90%' },
+                            colors: ['#f0ae29'],
+                            vAxes: {
+                                0: {
+                                    textPosition: 'none',
+                                    gridlines: {
+                                        color: 'transparent'
+                                    },
+                                    baselineColor: 'transparent'
+                                },
+                                1: {
+                                    gridlines: {
+                                        color: 'transparent'
+                                    }
+                                }
+                            },
+                            legend: { position: 'none' },
+                        }}
+                    />
+                </div>
+            </div>)
+    }
+
     render() {
         return (
             <div className="weather-container">
-                {this.renderLocationPicker()}
-                {this.renderWeatherReport()}
+                <div className="column">
+                    {this.renderLocationPicker()}
+                    {this.renderWeatherChart()}
+                </div>
+                <div className="column">
+                    {this.renderWeatherReport()}
+                </div>
             </div>)
     }
 }

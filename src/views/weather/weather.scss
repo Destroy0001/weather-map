@@ -2,17 +2,31 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     overflow: scroll;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    .location-container {
+    .separator {
+        width: 100%;
+        height: 1px;
+        background-color: #d3d3d3;
+        margin: 16px auto;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
         width: 50%;
-        height: 40%;
+        padding: 20px;
+        justify-content: space-between;
+    }
+
+    .location-container {
+        height: 48%;
         display: inline-block;
-        box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.3);
         border-radius: 8px;
         padding: 20px;
 
@@ -62,11 +76,23 @@
 
     }
 
-    .weather-report-container {
-        width: 45%;
-        max-height: 100%;
+    .chart-container {
+        height: 48%;
         display: inline-block;
-        box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        padding: 20px;
+        .chart-wrapper {
+            width: 100%;
+            height: 80%;
+        }
+
+    }
+
+    .weather-report-container {
+        height: 100%;
+        display: inline-block;
+        box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.3);
         border-radius: 8px;
         padding: 20px;
 
@@ -78,17 +104,11 @@
             }
         }
 
-        .separator {
-            width: 100%;
-            height: 1px;
-            background-color: #d3d3d3;
-            margin: 16px auto;
-        }
 
         .weather-report {
-           overflow-x: hidden;
-           overflow-y: scroll;
-           height: 90%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 90%;
 
             .daily-weather-report {
                 height: 100px;
@@ -105,13 +125,15 @@
                 .temp-wrapper {
                     width: 25%;
                     text-align: center;
+
                     .temp {
-                        font-size: 25px;
+                        font-size: 20px;
                         font-weight: 500;
-                        line-height: 50px;
+                        line-height: 60px;
                     }
 
                     .temp-label {
+                        font-size: 12px;
                         text-align: center;
                         color: #d3d3d3;
                     }
@@ -131,14 +153,17 @@
         padding: 10px;
         flex-direction: column;
 
-        .location-container {
+        .column {
             width: 100%;
+            height: 100%;
+        }
+
+        .location-container {
             padding: 10px;
         }
 
         .weather-report-container {
-            width: 100%;
-            margin-top: 20px;
+            margin-top: 10px;
         }
     }
 }
