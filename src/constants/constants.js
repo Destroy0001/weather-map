@@ -1,5 +1,5 @@
 export const MAPS_API_KEY = 'AIzaSyDuFeP-bsrRKA4N9c1mGufdAke4TGd2lRs';
-export const WEATHER_API_KEY = '201c47a9297b049e4659b2737f2ca14f';
+export const WEATHER_API_KEY = '12f6799324344c6db74102257180710';
 
 export const locations = [{
     id: 1,

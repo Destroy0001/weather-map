@@ -15,16 +15,11 @@ export default (state = initState, action) => {
             });
         case 'LOADING_WEATHER_REPORT':
             return assign({}, state, {
-                weatherRepor:{
-                    loading: true
-                }
+                weatherReport: action.state.weatherReport
             });
-        case 'UPDATE_WEATHER_REPORT':
+        case 'SAVE_WEATHER_REPORT':
             return  assign({}, state, {
-                weatherRepor: {
-                    loading: false,
-                    data: action.state.weatherReport.data
-                }
+                weatherReport: action.state.weatherReport
             });
         default:
             return state;
