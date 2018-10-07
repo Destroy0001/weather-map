@@ -95,7 +95,7 @@ export class WeatherView extends React.Component {
         return (
             <div className="chart-container">
                 <div className="chart-heading">
-                    <span className="chart-label"> 7 Day forecast</span>
+                    <span className="chart-label"> Weekly Forecast</span>
                 </div>
                 <div className="separator"></div>
                 <div className="chart-wrapper">
